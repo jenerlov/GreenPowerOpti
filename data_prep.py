@@ -36,6 +36,12 @@ def create_visualizations(data):
     plt.ylabel('Solar Power')
     plt.show()
 
+def feature_engineering(data):
+    # Skapa nya funktioner som moving averages, lagged features etc.
+    data['Weelday'] = pd.to_datetime(data['Date']).dt.weekday
+    data['Month'] = pd.to_datetime(data['Date']).dt.month
+    
+    return data
 
 def main():
     file_path = './data/opsd_germany_daily.csv'
